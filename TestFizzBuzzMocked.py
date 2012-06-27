@@ -17,7 +17,21 @@ class TestFizzBuzzMocked(pymock.PyMockTestCase):
         self.fb = None
 
     def test_report(self):
-        pass
+
+        mock_opener = self.mock()
+        mock_report_file = self.mock()
+        self.expectAndReturn(mock_opener.open('c:\temp\Joe.txt', 'w'), mock_report_file)
+        
+        mock_report_file.write("33 fizz")
+        mock_report_file.close()
+        #replay
+        self.replay()
+
+        fb = FizzBuzz.FizzBuzz()
+        fb.report([33], 'c:\temp\Joe.txt', mock_report_file)
+
+        #verify
+        self.verify()
 
 
 
