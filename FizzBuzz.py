@@ -1,18 +1,29 @@
 """
+"""
 Q1. Why is the report method untestable ? [2 pts]
 
-
+It has external dependecies.
+1. File operations
+2. take file name as argument
 
 
 Q2. How will you change the api of the report method to make it more testable ? [2 pts]
 
+make 'open' function and file name as an argument  to report like :
+
+def report(self, numbers, file_name, opener=open)
+
+
+
 
 
 """
-class FizzBuzz(object):
-    def report(self, numbers):
 
-        report_file = open('c:/temp/fizzbuzz_report.txt', 'w')
+"""
+class FizzBuzz(object):
+    def report(self, numbers, fileHandler):
+
+        #report_file = open('c:/temp/fizzbuzz_report.txt', 'w')
 
         for number in numbers:
             msg = str(number) + " "
