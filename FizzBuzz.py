@@ -9,9 +9,7 @@ It has external dependecies.
 
 Q2. How will you change the api of the report method to make it more testable ? [2 pts]
 
-make 'open' function and file name as an argument  to report like :
-
-def report(self, numbers, file_name, opener=open)
+Give the file handler to report method.
 
 
 
